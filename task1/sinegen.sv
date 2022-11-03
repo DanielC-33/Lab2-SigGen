@@ -6,7 +6,7 @@ module sinegen #(
     input   logic               clk,
     input   logic               rst,
     input   logic               en,
-    //input   logic [D_WIDTH-1:0] incr,
+    input   logic [D_WIDTH-1:0] incr,
     output  logic [D_WIDTH-1:0] dout
 );
 
@@ -16,7 +16,7 @@ counter addrCounter (
     .clk (clk), //These are assigning the values from the module to this module
     .rst (rst),
     .en (en),
-    //.incr (incr),
+    .incr (incr),
     .count (address)
 );
 

@@ -3,8 +3,6 @@
 #include "verilated_vcd_c.h"
 #include "vbuddy.cpp"
 
-//task: make a testbench for sinegen.sv (L4S22)
-
 int main(int argc, char **argv, char **env) {
     Verilated::commandArgs(argc, argv);
     Vsinegen* top = new Vsinegen;
@@ -18,6 +16,7 @@ int main(int argc, char **argv, char **env) {
 
     top->clk = 0;
     top->rst = 1;
+    top->incr = 0;
     top->en = 0;
 
     int clk = 0;
@@ -28,7 +27,9 @@ int main(int argc, char **argv, char **env) {
             top->eval();
         }
         vbdPlot(int(top->dout), 0, 255);
-        vbdCycle(i+1); //what does this do?
+        vbdCycle(i+1);
+
+        top->incr = vbdValue();
 
         top->rst = i < 3;
         top->en = i > 5;
