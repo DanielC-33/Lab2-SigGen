@@ -14,31 +14,34 @@ VL_ATTR_COLD void Vsinegen___024root__trace_init_sub__TOP__0(Vsinegen___024root*
     tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
     tracep->declBit(c+3,"en", false,-1);
-    tracep->declBus(c+4,"incr", false,-1, 7,0);
-    tracep->declBus(c+5,"dout", false,-1, 7,0);
+    tracep->declBus(c+4,"phase", false,-1, 7,0);
+    tracep->declBus(c+5,"dout1", false,-1, 7,0);
+    tracep->declBus(c+6,"dout2", false,-1, 7,0);
     tracep->pushNamePrefix("sinegen ");
-    tracep->declBus(c+7,"A_WIDTH", false,-1, 31,0);
-    tracep->declBus(c+7,"D_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+9,"A_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+9,"D_WIDTH", false,-1, 31,0);
     tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
     tracep->declBit(c+3,"en", false,-1);
-    tracep->declBus(c+4,"incr", false,-1, 7,0);
-    tracep->declBus(c+5,"dout", false,-1, 7,0);
-    tracep->declBus(c+6,"address", false,-1, 7,0);
+    tracep->declBus(c+4,"phase", false,-1, 7,0);
+    tracep->declBus(c+5,"dout1", false,-1, 7,0);
+    tracep->declBus(c+6,"dout2", false,-1, 7,0);
+    tracep->declBus(c+7,"address", false,-1, 7,0);
     tracep->pushNamePrefix("addrCounter ");
-    tracep->declBus(c+7,"WIDTH", false,-1, 31,0);
+    tracep->declBus(c+9,"WIDTH", false,-1, 31,0);
     tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
     tracep->declBit(c+3,"en", false,-1);
-    tracep->declBus(c+4,"incr", false,-1, 7,0);
-    tracep->declBus(c+6,"count", false,-1, 7,0);
+    tracep->declBus(c+7,"count", false,-1, 7,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("sineRom ");
-    tracep->declBus(c+7,"ADDRESS_WIDTH", false,-1, 31,0);
-    tracep->declBus(c+7,"DATA_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+9,"ADDRESS_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+9,"DATA_WIDTH", false,-1, 31,0);
     tracep->declBit(c+1,"clk", false,-1);
-    tracep->declBus(c+6,"addr", false,-1, 7,0);
-    tracep->declBus(c+5,"dout", false,-1, 7,0);
+    tracep->declBus(c+7,"addr1", false,-1, 7,0);
+    tracep->declBus(c+8,"addr2", false,-1, 7,0);
+    tracep->declBus(c+5,"dout1", false,-1, 7,0);
+    tracep->declBus(c+6,"dout2", false,-1, 7,0);
     tracep->popNamePrefix(2);
 }
 
@@ -85,8 +88,11 @@ VL_ATTR_COLD void Vsinegen___024root__trace_full_sub_0(Vsinegen___024root* vlSel
     bufp->fullBit(oldp+1,(vlSelf->clk));
     bufp->fullBit(oldp+2,(vlSelf->rst));
     bufp->fullBit(oldp+3,(vlSelf->en));
-    bufp->fullCData(oldp+4,(vlSelf->incr),8);
-    bufp->fullCData(oldp+5,(vlSelf->dout),8);
-    bufp->fullCData(oldp+6,(vlSelf->sinegen__DOT__address),8);
-    bufp->fullIData(oldp+7,(8U),32);
+    bufp->fullCData(oldp+4,(vlSelf->phase),8);
+    bufp->fullCData(oldp+5,(vlSelf->dout1),8);
+    bufp->fullCData(oldp+6,(vlSelf->dout2),8);
+    bufp->fullCData(oldp+7,(vlSelf->sinegen__DOT__address),8);
+    bufp->fullCData(oldp+8,((0xffU & ((IData)(vlSelf->sinegen__DOT__address) 
+                                      + (IData)(vlSelf->phase)))),8);
+    bufp->fullIData(oldp+9,(8U),32);
 }
