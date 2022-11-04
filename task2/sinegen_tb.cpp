@@ -38,4 +38,7 @@ int main(int argc, char **argv, char **env) {
 
         if( vbdGetkey() == 'q' ) exit(0);
     }
+    vbdClose(); // housekeeping
+    tfp->close();
+    exit(0);
 }
